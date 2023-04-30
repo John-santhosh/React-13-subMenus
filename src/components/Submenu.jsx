@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { useGlobalContext } from "../Context";
 import sublinks from "../data";
 const Submenu = () => {
@@ -9,15 +10,22 @@ const Submenu = () => {
     gridTemplateColumns: currentPage?.links?.length > 3 ? "1fr 1fr" : "1fr",
   };
 
+  const submenuContainer = useRef(null);
   const handleMouseLeave = (e) => {
-    console.log(e.target.classList);
-    setPageId(null);
+    const { clientX, clientY } = e;
+    const current = submenuContainer.current.getBoundingClientRect();
+    const { left, right, bottom } = current;
+    // console.log(current);
+    // console.log(clientX, clientY);
+    if (clientX < left || clientY > bottom || clientX > right) {
+      setPageId(null);
+    }
   };
-  // console.log(currentPage);
   return (
     <div
       onMouseLeave={handleMouseLeave}
       className={currentPage ? "submenu show-submenu" : "submenu "}
+      ref={submenuContainer}
     >
       <h5>{currentPage?.page}</h5>
       <div className="submenu-links" style={layout}>

@@ -15,14 +15,14 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1.2rem;
-  margin: 1rem 0;
+  height: 4rem;
+
+  padding: 0 2rem;
 }
 
 button {
   border: none;
   cursor: pointer;
-  padding: 0.625rem;
   border-radius: 5px;
 }
 
@@ -58,6 +58,9 @@ button {
   line-height: 1.5rem;
 }
 
+.toggle-btn {
+  padding: 0.625rem;
+}
 @media screen and (min-width: 992px) {
   .hero-center {
     text-align: center;
@@ -158,7 +161,7 @@ button {
 
   .nav-link {
     align-self: stretch;
-    padding: 0 1rem;
+    margin: 0 1rem;
     color: #fff;
     background: transparent;
     border-color: transparent;
@@ -183,6 +186,7 @@ button {
     width: 70%;
     left: 50%;
     padding: 1rem;
+    border-radius: 0.625rem;
     transform: rotateX(-90deg) translateX(-50%);
     transform-origin: top;
     visibility: hidden;

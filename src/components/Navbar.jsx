@@ -4,7 +4,7 @@ import NavLinks from "./NavLinks";
 const Navbar = () => {
   const { openSidebar, setPageId } = useGlobalContext();
   function handleSubmenu(e) {
-    console.log(e.target.classList);
+    // console.log(e.target.classList);
     if (!e.target.classList.contains("nav-link")) {
       setPageId(null);
     }
